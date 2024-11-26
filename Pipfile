@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jupyter = "*"
+lab = "*"
+notebook = "*"
+voila = "*"
+pypdf = "*"
+python-dotenv = "*"
+tavily-python = "*"
+langchain-community = "*"
+tiktoken = "*"
+langchain-openai = "*"
+langchainhub = "*"
+chromadb = "*"
+langchain = "*"
+langgraph = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
