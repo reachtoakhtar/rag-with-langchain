@@ -48,4 +48,3 @@ answer_prompt = ChatPromptTemplate.from_messages(
 )
 
 answer_grader = answer_prompt | structured_llm_grader
-# answer_grader.invoke({"question": question, "generation": generation})

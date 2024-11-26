@@ -54,7 +54,6 @@ grade_prompt = ChatPromptTemplate.from_messages(
 retriever = get_retriever()
 retrieval_grader = grade_prompt | structured_llm_grader
 question = "agent memory"
-# docs = retriever.get_relevant_documents(question)
 docs = retriever.invoke(question)
 doc_txt = docs[1].page_content
 print(retrieval_grader.invoke({"question": question, "document": doc_txt}))

@@ -36,6 +36,7 @@ def get_retriever():
         documents=doc_splits,
         collection_name="rag-chroma",
         embedding=AzureOpenAIEmbeddings(model=AZURE_OPENAI_EMBEDDING_MODEL),
+        persist_directory="./db",
     )
     vectorstore.add_documents(documents=doc_splits)
     retriever = vectorstore.as_retriever(k=5)

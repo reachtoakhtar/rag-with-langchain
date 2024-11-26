@@ -48,13 +48,3 @@ hallucination_prompt = ChatPromptTemplate.from_messages(
 )
 
 hallucination_grader = hallucination_prompt | structured_llm_grader
-#
-# # Run
-# prompt = hub.pull("rlm/rag-prompt")
-# rag_chain = prompt | llm | StrOutputParser()
-# retriever = get_retriever()
-# question = "agent memory"
-# docs = retriever.get_relevant_documents(question)
-# doc_txt = docs[1].page_content
-# generation = rag_chain.invoke({"context": docs, "question": question})
-# hallucination_grader.invoke({"documents": docs, "generation": generation})

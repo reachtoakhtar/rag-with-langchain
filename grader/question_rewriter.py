@@ -39,4 +39,3 @@ re_write_prompt = ChatPromptTemplate.from_messages(
 )
 
 question_rewriter = re_write_prompt | llm | StrOutputParser()
-# question_rewriter.invoke({"question": question})

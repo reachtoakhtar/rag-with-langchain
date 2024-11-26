@@ -38,27 +38,51 @@ app = workflow.compile()
 
 from pprint import pprint
 
+###########
+### RUN ###
+###########
+index = 0
+while True:
+    print('\n----------------')
+    print(f"Query number: {index + 1}")
+    print('----------------')
+
+    input_query = input("What's your query? \n")
+    inputs = {"question": input_query}
+    for output in app.stream(inputs):
+        for key, value in output.items():
+            # Node
+            pprint(f"Node '{key}':")
+            # Optional: print full state at each node
+            # pprint.pprint(value["keys"], indent=2, width=80, depth=None)
+        pprint("\n---\n")
+
+    # Final generation
+    pprint(value["generation"])
+
+    index += 1
+
 # Run
-inputs = {"question": "Explain how the different types of agent memory work?"}
-for output in app.stream(inputs):
-    for key, value in output.items():
-        # Node
-        pprint(f"Node '{key}':")
-        # Optional: print full state at each node
-        # pprint.pprint(value["keys"], indent=2, width=80, depth=None)
-    pprint("\n---\n")
+# inputs = {"question": "Explain how the different types of agent memory work?"}
+# for output in app.stream(inputs):
+#     for key, value in output.items():
+#         # Node
+#         pprint(f"Node '{key}':")
+#         # Optional: print full state at each node
+#         # pprint.pprint(value["keys"], indent=2, width=80, depth=None)
+#     pprint("\n---\n")
+#
+# # Final generation
+# pprint(value["generation"])
 
-# Final generation
-pprint(value["generation"])
-
-inputs = {"question": "Explain how chain of thought prompting works?"}
-for output in app.stream(inputs):
-    for key, value in output.items():
-        # Node
-        pprint(f"Node '{key}':")
-        # Optional: print full state at each node
-        # pprint.pprint(value["keys"], indent=2, width=80, depth=None)
-    pprint("\n---\n")
-
-# Final generation
-pprint(value["generation"])
+# inputs = {"question": "Explain how chain of thought prompting works?"}
+# for output in app.stream(inputs):
+#     for key, value in output.items():
+#         # Node
+#         pprint(f"Node '{key}':")
+#         # Optional: print full state at each node
+#         # pprint.pprint(value["keys"], indent=2, width=80, depth=None)
+#     pprint("\n---\n")
+#
+# # Final generation
+# pprint(value["generation"])
